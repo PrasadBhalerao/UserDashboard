@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dashboard.Persistence
+namespace Dashboard.IService
 {
     public class Class1
     {
