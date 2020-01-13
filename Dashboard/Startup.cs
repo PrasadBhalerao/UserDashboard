@@ -1,4 +1,6 @@
+using Dashboard.IService;
 using Dashboard.Persistence;
+using Dashboard.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -29,6 +31,7 @@ namespace Dashboard
             });
 
             services.AddDbContext<DashboardContext>(x =>  x.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
