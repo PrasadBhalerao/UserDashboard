@@ -1,11 +1,54 @@
-<h1 mat-dialog-title>Add user</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data">
-  </mat-form-field>
+<div class="row">
+  <h1 mat-dialog-title class="col-md-9">{{user.keyID ? 'Add user' : 'Edit user'}}</h1>
+  <button mat-button (click)="closeDialog()" class="col-md-1 offset-md-1">X</button>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+
+<div mat-dialog-content class="margin-top-30">
+
+  <p>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="user.name" id="name" placeholder="Name">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="user.email" id="email" placeholder="Email">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="user.mobileNumber" id="mobileNumber" placeholder="Mobile Number (Optional)">
+    </mat-form-field>
+  </p>
+  
+  <p class="margin-top-40">
+    <mat-radio-group aria-labelledby="example-radio-group-label"
+                     class="example-radio-group"
+                     [(ngModel)]="user.roleId">
+      <mat-radio-button class="example-radio-button" *ngFor="let role of roles" [value]="role.keyId">
+        {{role.name}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </p>
+
+  <p>
+    <mat-form-field>
+      <mat-select [(value)]="user.statusId" placeholder="Status">
+        <mat-option *ngFor="let status of statuses" [value]="status.keyId">
+          {{status.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+</div>
+
+<div mat-dialog-actions class="row" *ngIf="user.keyID">
+  <button mat-button (click)="deleteUser(user.keyID)" class="margin-left-20 col-md-5">Delete</button>
+  <button mat-button (click)="updateUser(user)" cdkFocusInitial class="col-md-5">Update</button>
+</div>
+
+<div mat-dialog-actions class="row" *ngIf="!user.keyID">
+  <button mat-button (click)="updateUser(user)" cdkFocusInitial class="col-md-12">Add</button>
 </div>

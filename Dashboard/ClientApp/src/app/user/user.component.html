@@ -1,4 +1,12 @@
-<h1 id="tableLabel"></h1>
+<div class="row">
+  <h3 class="col-md-2">Users</h3>
+  <div class="offset-md-5 col-md-3">
+    <input style="width:100%" id="search" type="text" [(ngModel)]="searchText" (ngModelChange)="this.searchQueryUpdate.next($event)" #searchInput />
+  </div>
+  <div class="col-md-2">
+    <button (click)="addUser()">Add User</button>
+  </div>
+</div>
 
 <p></p>
 

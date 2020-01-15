@@ -1,0 +1,30 @@
+.input-box {
+  border: 1px solid gray !important;
+  height: 32px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.mat-form-field {
+  width: 260px;
+  height: 35px;
+}
+
+.mat-dialog-title {
+  margin: 0px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-top-40 {
+  margin-top: 40px;
+}
+
+.margin-left-20 {
+    margin-left: 20px;
+}
+.mat-radio-button{
+  margin-right: 3px;
+}

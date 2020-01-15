@@ -13,10 +13,21 @@ export class UserService {
     this._baseUrl = baseUrl;
   }
 
-  getUsers(): Observable<any> {
-    return this._http.get<User[]>(this._baseUrl + 'api/User/GetAll');
+  getUsers(username: string): Observable<any> {
+    let url = this._baseUrl + 'api/Users';
+    if (username) {
+      url += '/';
+      url += username;
+    }
+    return this._http.get<User[]>(url);
   }
 
+  deleteUser(userId: number): Observable<any> {
+    return this._http.delete(this._baseUrl + 'api/User/Delete/' + userId);
+  }
 
+  updateUser(user: User): Observable<any> {
+    return this._http.put(this._baseUrl + 'api/User/Save', user);
+  }
 }
 

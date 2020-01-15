@@ -12,11 +12,13 @@ import {
   MatInputModule,
   MatRippleModule
 } from '@angular/material';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    MatRadioModule,
+    MatSelectModule,
     RouterModule.forRoot([
       { path: '', component: UserComponent, pathMatch: 'full' }
     ])
@@ -45,6 +49,8 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }],
   bootstrap: [AppComponent],
