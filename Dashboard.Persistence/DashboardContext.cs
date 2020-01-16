@@ -7,13 +7,17 @@ namespace Dashboard.Persistence
 {
     public class DashboardContext : DbContext
     {
+        public DashboardContext()
+        {
+
+        }
         public DashboardContext(DbContextOptions options) : base (options)
         {
 
         }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Status> Statuses { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Status> Statuses { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

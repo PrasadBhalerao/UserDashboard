@@ -27,9 +27,9 @@ namespace Dashboard.Service
                     MobileNumber = x.MobileNumber,
                     Name = x.Name,
                     RoleId = x.RoleId,
-                    RoleName = x.Role.Name,
+                    RoleName = x.Role != null ? x.Role.Name : "",
                     StatusId = x.StatusId,
-                    StatusName = x.Status.Name
+                    StatusName = x.Status != null ? x.Status.Name : ""
                 }).ToList();
         }
 

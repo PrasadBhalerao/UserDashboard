@@ -26,8 +26,8 @@
     <tr *ngFor="let user of users">
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
-      <td>{{ user.roleId }}</td>
-      <td>{{ user.statusId }}</td>
+      <td>{{ user.roleName }}</td>
+      <td>{{ user.statusName }}</td>
       <td><button value="Submit" (click)="editUserDetails(user)">Edit</button></td>
     </tr>
   </tbody>

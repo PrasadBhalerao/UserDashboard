@@ -7,6 +7,8 @@ export class User {
   role: number;
   roleId: number;
   mobileNumber: string;
+  roleName: string;
+  statusName: string;
 }
 
 export class Role {
