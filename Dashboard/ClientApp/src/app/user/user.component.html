@@ -12,23 +12,38 @@
 
 <p *ngIf="!users"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
-  <thead>
-    <tr>
-      <th>NAME</th>
-      <th>EMAIL</th>
-      <th>ROLE TYPE</th>
-      <th>STATUS</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.name }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.roleName }}</td>
-      <td>{{ user.statusName }}</td>
-      <td><button value="Submit" (click)="editUserDetails(user)">Edit</button></td>
-    </tr>
-  </tbody>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <!-- Role Column -->
+  <ng-container matColumnDef="roleName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> ROLE TYPE </th>
+    <td mat-cell *matCellDef="let element"> {{element.roleName}} </td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="statusName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </th>
+    <td mat-cell *matCellDef="let element"> {{element.statusName}} </td>
+  </ng-container>
+
+  <!-- Edit Column -->
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+    <td mat-cell *matCellDef="let element"><button value="Submit" (click)="editUserDetails(element)">Edit</button></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

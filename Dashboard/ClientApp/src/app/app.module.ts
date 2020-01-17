@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material';
 import {
   MAT_DIALOG_DEFAULT_OPTIONS,
   MatButtonModule,
@@ -39,6 +41,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatRippleModule,
     MatRadioModule,
     MatSelectModule,
+    MatTableModule,
+    MatSortModule,
     RouterModule.forRoot([
       { path: '', component: UserComponent, pathMatch: 'full' }
     ])
@@ -50,7 +54,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatRippleModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }],
   bootstrap: [AppComponent],
